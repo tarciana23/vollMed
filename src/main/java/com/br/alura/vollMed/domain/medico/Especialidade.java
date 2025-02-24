@@ -1,4 +1,4 @@
-package com.br.alura.vollMed.medico;
+package com.br.alura.vollMed.domain.medico;
 
 public enum Especialidade {
     ORTOPEDIA,

@@ -1,10 +1,9 @@
-package com.br.alura.vollMed.medico;
+package com.br.alura.vollMed.domain.medico;
 
 
-import com.br.alura.vollMed.Endereco.Endereco;
+import com.br.alura.vollMed.domain.Endereco.Endereco;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

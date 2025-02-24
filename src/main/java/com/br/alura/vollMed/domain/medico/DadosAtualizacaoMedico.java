@@ -1,6 +1,6 @@
-package com.br.alura.vollMed.medico;
+package com.br.alura.vollMed.domain.medico;
 
-import com.br.alura.vollMed.Endereco.DadosEndereco;
+import com.br.alura.vollMed.domain.Endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoMedico(

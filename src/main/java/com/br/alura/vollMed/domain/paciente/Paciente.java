@@ -1,7 +1,7 @@
-package com.br.alura.vollMed.paciente;
+package com.br.alura.vollMed.domain.paciente;
 
 
-import com.br.alura.vollMed.Endereco.Endereco;
+import com.br.alura.vollMed.domain.Endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

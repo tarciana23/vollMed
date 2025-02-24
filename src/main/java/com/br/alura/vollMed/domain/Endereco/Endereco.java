@@ -1,18 +1,30 @@
-package com.br.alura.vollMed.Endereco;
+package com.br.alura.vollMed.domain.Endereco;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Embeddable;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 
 @Embeddable
 public class Endereco {
+    @JsonProperty("logradouro")
     private String logradouro;
+
+    @JsonProperty("bairro")
     private String bairro;
+
+    @JsonProperty("cep")
     private String cep;
+
+    @JsonProperty("numero")
     private String numero;
+
+    @JsonProperty("complemento")
     private String complemento;
+
+    @JsonProperty("cidade")
     private String cidade;
+
+    @JsonProperty("uf")
     private String uf;
 
     public Endereco(){}

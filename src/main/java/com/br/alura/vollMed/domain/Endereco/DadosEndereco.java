@@ -1,10 +1,9 @@
-package com.br.alura.vollMed.Endereco;
+package com.br.alura.vollMed.domain.Endereco;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-@Embeddable
 public record DadosEndereco(
         @NotBlank
         String logradouro,

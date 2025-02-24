@@ -1,7 +1,7 @@
 package com.br.alura.vollMed.Controller;
 
 
-import com.br.alura.vollMed.paciente.*;
+import com.br.alura.vollMed.domain.paciente.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
