@@ -23,7 +23,6 @@ public class MedicoController {
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder){
 
         var medico = new Medico(dados);
-        System.out.println("Medico: " + medico);
         repository.save(medico);// aqui o id é gerado
 
         //uri é o endereço da api
