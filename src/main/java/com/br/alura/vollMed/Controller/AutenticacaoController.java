@@ -1,6 +1,9 @@
 package com.br.alura.vollMed.Controller;
 
 import com.br.alura.vollMed.domain.usuario.DadosAutenticacao;
+import com.br.alura.vollMed.domain.usuario.Usuario;
+import com.br.alura.vollMed.infra.security.DadosTokenJWT;
+import com.br.alura.vollMed.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +21,21 @@ public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
 
-    @PostMapping
-    public ResponseEntity efeturarLogin(@RequestBody @Valid DadosAutenticacao dados){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(),dados.senha());
-        var authentication = manager.authenticate(token);
+    @Autowired
+    private TokenService tokenService;
 
-        return ResponseEntity.ok();
+    @PostMapping
+    public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
+        try {
+            var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+            var authentication = manager.authenticate(authenticationToken);
+
+            var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+
+            return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
