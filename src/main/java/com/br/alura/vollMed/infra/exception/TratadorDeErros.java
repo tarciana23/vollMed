@@ -1,5 +1,6 @@
 package com.br.alura.vollMed.infra.exception;
 
+import com.br.alura.vollMed.domain.ValidacaoException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -23,10 +24,17 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
 
     }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratarErrosRegraDeNegocio(ValidacaoException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
     private record DadosErroValidacao(String campo, String mensagem){
         public DadosErroValidacao(FieldError erro){
             this(erro.getField(), erro.getDefaultMessage());
         }
 
     }
+
 }
